@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap");
+
+.record_desc {
+  color: #aeaeae;
+}
+.record_desc span {
+  font-weight: 700;
+  color: #181818;
+}
+
+.result {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.relative {
+  position: relative;
+  height: 100%;
+}
+
+.modal {
+  padding: 40px;
+  height: 845px;
+  background: white;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.modal_title {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.circle_title {
+  font-size: 26px;
+  color: #505050;
+  margin-bottom: 2vh;
+}
+
+.centence {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 66px;
+}

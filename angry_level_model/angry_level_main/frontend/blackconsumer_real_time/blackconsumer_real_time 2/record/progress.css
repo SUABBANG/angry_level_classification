@@ -1,0 +1,35 @@
+.circle_wrap {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.circle_progress_wrap {
+  position: relative;
+  width: 326px;
+  height: 326px;
+}
+.circle_progress {
+  transform: rotate(-90deg);
+}
+.frame,
+.bar {
+  fill: none;
+}
+.frame {
+  stroke: #e6e6e6;
+}
+.bar {
+  stroke-linecap: round;
+  stroke-dasharray: 973;
+}
+.value {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  color: #888;
+  font-size: 54px;
+  line-height: 326px;
+}

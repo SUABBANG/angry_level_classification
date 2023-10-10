@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>선 그래프 예제</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블랙컨슈머</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./record.css" />
+    <link rel="stylesheet" href="./progress.css" />
+    <style>
+      canvas {
+        display: block;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div style="padding-top: 40px" id="index">
+      <h1>AI Voice Emotion Recognition</h1>
+      <h2 class="record_desc">
+        Record an angry voice for about
+        <span> 30 seconds </span>
+      </h2>
+      <img class="btn_img" src="../img/record.png" alt="" />
+      <br />
+      <button class="btn">Recording</button>
+    </div>
+    <!-- 모달 -->
+    <div class="result">
+      <div class="relative">
+        <div class="modal">
+          <h2 class="modal_title">Real Time Report</h2>
+          <div class="flex">
+            <img class="emotion_img" src="../img/emotion_0.jpg" alt="" />
+            <canvas id="myChart"></canvas>
+          </div>
+          <a href="../result/result.html">
+            <button class="btn">Check</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./record.js"></script>
+  </body>
+</html>
