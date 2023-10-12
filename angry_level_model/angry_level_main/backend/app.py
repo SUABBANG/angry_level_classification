@@ -69,6 +69,7 @@ def calculate_decibel(audio_path):
 model = joblib.load('saved_model.pkl')
 # 분노 중립 분류
 classifier = pipeline("audio-classification", model="SUABBANG/my_voice_classification_model")
+
 # 단계분류
 # filename = '/mnt/c/Users/user/angry_level_classification/angry_level_model/angry_level_main/backend/xgb_model_ver4.sav'
 # loaded_model = pickle.load(open(filename, 'rb'))
@@ -122,11 +123,11 @@ def main():
 
     else: # 고객
         # sampling rate 재지정
-        new_sr_audio_path = './files/new_sr/blob.wav'
-        audio, sr = librosa.load(sound_file, sr=16000)
-        sf.write(new_sr_audio_path, audio, sr)
+        # new_sr_audio_path = './files/new_sr/blob.wav'
+        audio, sr = librosa.load(sound_file, sr=None)
+        # sf.write(new_sr_audio_path, audio, sr)
 
-        result_percent = classifier(new_sr_audio_path)
+        result_percent = classifier(sound_file)
         # print(result_percent)
 
         # result_percent.sort(key=lambda x: x['score'], reverse=True)
@@ -139,20 +140,20 @@ def main():
                 break
         print("angry_score",angry_score)
 
+        decibel = calculate_decibel(sound_file)
+        print("decibel:", decibel)
+        pitch = calculate_pitch(sound_file)
+        print("pitch:", pitch)
+        speech_rate = calculate_speech_rate(sound_file)
+        print("speech_rate:", speech_rate)
+
         # 분노 단계 분류
         # if highest_score_label == 'angry' :
         if angry_score >= 0.6 : # 소음처리
             result_lavel = 0
 
-        elif angry_score >= 0.35 :
+        elif angry_score >= 0.35 or decibel >= 70 :
             # print("분노함")
-
-            decibel = calculate_decibel(sound_file)
-            print("decibel:", decibel)
-            pitch = calculate_pitch(sound_file)
-            print("pitch:", pitch)
-            speech_rate = calculate_speech_rate(sound_file)
-            print("speech_rate:", speech_rate)
 
             if decibel >= 45:
                 #여기서 분노 분류 코드 이따 넣기
